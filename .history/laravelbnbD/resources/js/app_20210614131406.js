@@ -12,8 +12,8 @@ import Index from './index';
 
 window.Vue = require('vue').default;
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-// Vue.component('example2', require('./components/Example2.vue').default); //now you can use <example2></example2> tag to insert this value
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('example2', require('./components/Example2.vue').default); //now you can use <example2></example2> tag to insert this value
 
 Vue.use(VueRouter);
 
@@ -22,6 +22,6 @@ const app = new Vue({
     //7 use router
     router,
     components: {
-      "index": Index
+      "index": Index;
     }
 });

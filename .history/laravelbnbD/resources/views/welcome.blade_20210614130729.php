@@ -13,6 +13,8 @@
     </head>
     <body class="antialiased">
             <div id="app">
+              <router-view></router-view>
+              <example2></example2>
             </div>
     </body>
 </html>

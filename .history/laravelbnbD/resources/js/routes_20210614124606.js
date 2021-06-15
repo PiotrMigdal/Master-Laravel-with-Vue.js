@@ -5,7 +5,6 @@ import VueRouter from 'vue-router';
 
 //1 import comonent
 import ExampleComponent from './components/ExampleComponent';
-import Example2 from './components/Example2';
 
 
 //2 Set up routes variable
@@ -14,11 +13,6 @@ const routes = [
     path: '/',
     component: ExampleComponent,
     name: 'home' //it shows now in the component view in VUE chrome ext.
-  },
-  {
-    path: '/second',
-    component: Example2,
-    name: 'second' //it shows now in the component view in VUE chrome ext.
   },
 ];
 

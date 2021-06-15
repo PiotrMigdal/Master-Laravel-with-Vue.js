@@ -22,6 +22,6 @@ const app = new Vue({
     //7 use router
     router,
     components: {
-      "index": Index
+      "index": Index;
     }
 });
