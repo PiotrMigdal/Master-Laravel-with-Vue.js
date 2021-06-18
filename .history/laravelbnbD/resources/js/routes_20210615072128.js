@@ -28,7 +28,6 @@ const routes = [
   },
 ];
 
-//4 Set router variable
 const router = new VueRouter({
   routes, //short for routes: routes
   mode: 'history' //so it won't show /#/ in address

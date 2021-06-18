@@ -15,7 +15,7 @@ import VueRouter from 'vue-router';
 //6 import router
 import router from './routes';
 
-//9 - import index so it is single page. You ignore .vue extensions
+//9 - import index so it is single page
 import Index from './index';
 
 window.Vue = require('vue').default;
@@ -28,6 +28,6 @@ const app = new Vue({
     router,
     components: {
       //10 - add index to components - go to welcome.blade for point 11
-      "index": Index
+      "indexs": Index
     }
 });

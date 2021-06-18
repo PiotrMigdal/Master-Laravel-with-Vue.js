@@ -1916,23 +1916,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index */ "./resources/js/index.vue");
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+/* APP.JS
+Here you import all exported components (included in variables)
+You add there routed locations from routes.js and the index.vue
+Then it goes to HTML element with id #app (see welcome.blade.php)
+In const app:
+- router are the addresses '/' and '/second' and index is the content from index.vue
+*/
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //8 import Vue builded in
 
- //8 import VueRouter
+
 
  //6 import router
 
+ //9 - import index so it is single page. You ignore .vue extensions
 
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default; // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-// Vue.component('example2', require('./components/Example2.vue').default); //now you can use <example2></example2> tag to insert this value
-
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
 vue__WEBPACK_IMPORTED_MODULE_2__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_3__.default);
 var app = new vue__WEBPACK_IMPORTED_MODULE_2__.default({
   el: '#app',
   //7 use router
   router: _routes__WEBPACK_IMPORTED_MODULE_0__.default,
   components: {
+    //10 - add index to components - go to welcome.blade for point 11
     "index": _index__WEBPACK_IMPORTED_MODULE_1__.default
   }
 });
@@ -1997,7 +2004,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
 /* harmony import */ var _components_Example2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Example2 */ "./resources/js/components/Example2.vue");
-//SET UP ROUTER
+/*SETTING UP ROUTER
+- In here you set up what will be presented under which link.
+  so the http://127.0.0.1:8000/second will display './components/Example2'
+  and http://127.0.0.1:8000/ will display'./components/ExampleComponent'
+- You use VueRouter build in method
+- Once set up you export this as router and you can import this in app.js
+*/
 //3 import VueRouter
  //1 import comonent
 
@@ -2012,8 +2025,7 @@ var routes = [{
 }, {
   path: '/second',
   component: _components_Example2__WEBPACK_IMPORTED_MODULE_1__.default,
-  name: 'second' //it shows now in the component view in VUE chrome ext.
-
+  name: 'second'
 }]; //4 Set router variable
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__.default({
@@ -37723,9 +37735,29 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("router-link", { attrs: { to: "/" } }),
+      _c(
+        "nav",
+        { staticClass: "navbar bg-white border-bottom navbar-light" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "navbar-brand mr-auto",
+              attrs: { to: { name: "home" } }
+            },
+            [_vm._v("Home")]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { staticClass: "btn nav-btn", attrs: { to: { name: "second" } } },
+            [_vm._v("Second")]
+          )
+        ],
+        1
+      ),
       _vm._v(" "),
-      _c("router-link", { attrs: { to: "/second" } }),
+      _c("div", { staticClass: "mt-4 md-4 pl-4 pr-4" }),
       _vm._v(" "),
       _c("router-view")
     ],
